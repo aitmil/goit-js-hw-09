@@ -1,3 +1,6 @@
+import SimpleLightbox from 'simplelightbox';
+import 'simplelightbox/dist/simple-lightbox.min.css';
+
 const images = [
   {
     preview:
@@ -64,8 +67,8 @@ const images = [
   },
 ];
 
-const gallery = document.querySelector('.gallery');
-gallery.innerHTML = createMarkup(images);
+const galleryList = document.querySelector('.gallery');
+galleryList.innerHTML = createMarkup(images);
 
 function createMarkup(arr) {
   return arr
@@ -84,36 +87,7 @@ function createMarkup(arr) {
     .join('');
 }
 
-import SimpleLightbox from 'simplelightbox';
-import 'simplelightbox/dist/simple-lightbox.min.css';
-
-// gallery.addEventListener("click", handleModalOpen);
-
-// function handleModalOpen(evt) {
-//   if (evt.target.nodeName === "IMG") {
-//     evt.preventDefault();
-
-//     const imageSource = evt.target.dataset.source;
-//     console.log(imageSource);
-
-//     const instance = basicLightbox.create(
-//       `<img class="modal-image" src="${imageSource}" />`,
-//       {
-//         onShow: () => {
-//           document.addEventListener("keydown", onKeyDown);
-//         },
-//         onClose: () => {
-//           document.removeEventListener("keydown", onKeyDown);
-//         },
-//       }
-//     );
-
-//     function onKeyDown(e) {
-//       if (e.code === "Escape") {
-//         instance.close();
-//       }
-//     }
-
-//     instance.show();
-//   }
-// }
+const lightbox = new SimpleLightbox('.gallery a', {
+  captionsData: 'alt',
+  captionDelay: 250,
+});
