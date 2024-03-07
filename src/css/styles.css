@@ -1,4 +1,8 @@
 /* common styles */
+:root {
+  --font-family: 'Montserrat', sans-serif;
+}
+
 p {
   margin: 0;
 }
@@ -57,11 +61,6 @@ body {
   transform: scale(1.05);
 }
 
-/* .basicLightbox {
+/* $sl-overlay-background {
   background-color: rgba(46, 47, 66, 0.8);
-}
-
-.basicLightbox__placeholder > img:first-child:last-child {
-  width: 1128px;
-  height: 640px;
 } */
