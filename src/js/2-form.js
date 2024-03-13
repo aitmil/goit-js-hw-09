@@ -4,8 +4,8 @@ const email = form.elements.email;
 const message = form.elements.message;
 
 const storedFormData = JSON.parse(localStorage.getItem(localStorageKey)) || {
-  email,
-  message,
+  email: '',
+  message: '',
 };
 email.value = storedFormData.email;
 message.value = storedFormData.message;
@@ -23,7 +23,11 @@ form.addEventListener('submit', evt => {
   if (email.value == '' || message.value == '') {
     return alert('All fields must be filled in');
   }
-  console.log(storedFormData);
+  const formData = {
+    email: email.value.trim(),
+    message: message.value.trim(),
+  };
+  console.log(formData);
   localStorage.removeItem(localStorageKey);
   form.reset();
 });
